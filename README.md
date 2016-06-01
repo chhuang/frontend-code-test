@@ -1,3 +1,15 @@
+### [Demo ( jQuery version )] (http://chhuang.github.io/frontend-code-test/)
+
+Install
+-----
+
+```
+git clone git@github.com:chhuang/frontend-code-test.git
+cd frontend-code-test
+npm install
+npm start
+```
+
 DataScience's Frontend Code Test
 ==================
 
