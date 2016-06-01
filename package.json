@@ -1,0 +1,22 @@
+{
+  "name": "frontend-code-test",
+  "version": "1.0.0",
+  "description": "DataScience's Frontend Code Test ==================",
+  "main": "app.js",
+  "scripts": {
+    "start": "./node_modules/browser-sync/bin/browser-sync.js start --server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chhuang/frontend-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chhuang/frontend-test/issues"
+  },
+  "homepage": "https://github.com/chhuang/frontend-test#readme",
+  "devDependencies": {
+    "browser-sync": "^2.12.8"
+  }
+}
