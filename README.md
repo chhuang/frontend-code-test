@@ -8,6 +8,7 @@ git clone git@github.com:chhuang/frontend-code-test.git
 cd frontend-code-test
 npm install
 npm start
+http://localhost:3000/jquery
 ```
 
 DataScience's Frontend Code Test

@@ -1,7 +1,7 @@
 'use strict';
 
 $(function() {
-  $.getJSON('recipes.json', function(data) {
+  $.getJSON('/recipes.json', function(data) {
 
 /* ==========================================================================
     SETUP       

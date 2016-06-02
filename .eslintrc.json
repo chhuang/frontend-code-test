@@ -1,0 +1,5 @@
+{
+  "plugins": [ "react" ],
+  "extends": [ "eslint:recommended", "plugin:react/recommended" ],
+  "env": { "commonjs": true, "browser": true, "es6": true }
+}
