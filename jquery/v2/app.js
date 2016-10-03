@@ -3,7 +3,7 @@
 var App = App || {};
 
 // Let's get started!
-App.settings = (function($, App) { 
+App.settings = (function($) { 
   /**
    * Preload all recipes
    * Using async:false here since it's a small json file, in a real world scenario 
@@ -40,7 +40,7 @@ App.settings = (function($, App) {
     $ingredientsContainer: $('.js-ingredients'),
     $filterContainer: $('.js-filter select')
   } 
-})(jQuery, App);
+})(jQuery);
 
 // Ingredients
 App.ingredients = (function($, App) {
@@ -186,13 +186,7 @@ App.recipes = (function($, App) {
 
     var _bindCheckbox = function() {
       $(':checkbox', App.settings.$recipesContainer).on('change', function() {
-        var $this = $(this);
-
-        App.ingredients.renderIngredients($this);
-
-        if ($this.is(':checked')) {
-          saveRecipes($this.val())
-        }
+        App.ingredients.renderIngredients($(this));
       });
     };
 
