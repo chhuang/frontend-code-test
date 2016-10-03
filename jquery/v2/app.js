@@ -19,7 +19,7 @@ App.settings = (function($, App) {
     };
 
     var nah = function() {
-      console.log('Json? Are you there?');
+      alert('Json? Are you there?');
     };
 
     $.ajax({
