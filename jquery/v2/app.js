@@ -30,8 +30,8 @@ App.settings = (function($, App) {
       error: nah
     });
 
-    return recipes
-  };
+    return recipes;
+  }
 
   return {
     data: fetchRecipes(),
