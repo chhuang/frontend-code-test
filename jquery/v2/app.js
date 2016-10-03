@@ -23,7 +23,7 @@ App.settings = (function($) {
     };
 
     $.ajax({
-      url: '/frontend-code-test/recipes.json',
+      url: 'recipes.json',
       async: false, 
       dataType: 'json', 
       success: yay,
@@ -99,38 +99,31 @@ App.ingredients = (function($, App) {
     });
   };
 
-  var renderIngredients = function($checkbox) {
-    // Active ingredients holder
-    var activeIngredients = [];
 
+  var renderIngredients = function() {
+    // Active ingredients holder
+    var activeIngredients = [];  
+    
     // Clear all current ingredients in the DOM
     App.settings.$ingredientsContainer.empty();
-
-    if ($checkbox) {
-      if ($checkbox.is(':checked')) {
-        // Get ingredients for the selected recipe
-        var selectedIngredients = App.recipes.getRecipe($checkbox.val()).ingredients;
-
-        // Add selected recipe's ingredients to activeIngredients, sort them and remove repeated items
-        activeIngredients = activeIngredients.concat(selectedIngredients).sort().filter(_removeRepeatedIngredients);
-
-        // Update UI
-        $checkbox.closest('label').addClass('is-selected');
-      } else {
-        $checkbox.closest('label').removeClass('is-selected');
-      }
-    }
     
+    $(':checkbox', App.settings.$recipesContainer).each(function() {
+      var $this = $(this);
+      var selectedIngredients = App.recipes.getRecipe($this.val()).ingredients;
+
+      if ($this.is(':checked')) {
+        activeIngredients = activeIngredients.concat(selectedIngredients).sort().filter(_removeRepeatedIngredients);
+      }
+    });
+
     // Put the ingredients in the UI
     if (activeIngredients.length > 0) {
       activeIngredients.map(function(ingredient) {
         $('<li />', { text: ingredient, 'class': 'list-group-item' }).appendTo(App.settings.$ingredientsContainer);
       });
-
-      $('.js-emptyHolder').hide();
-    } else {
-      $('.js-emptyHolder').show();
     }
+    
+    $('.js-emptyHolder').toggle(activeIngredients.length === 0);
   };
 
   // Save ingredient filter
@@ -186,7 +179,12 @@ App.recipes = (function($, App) {
 
     var _bindCheckbox = function() {
       $(':checkbox', App.settings.$recipesContainer).on('change', function() {
-        App.ingredients.renderIngredients($(this));
+        var $this = $(this);
+
+        App.ingredients.renderIngredients();
+        
+        // Highlight selected recipes
+        $this.closest('label').toggleClass('is-selected', $this.is(':checked'));
       });
     };
 
