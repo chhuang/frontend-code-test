@@ -23,7 +23,7 @@ App.settings = (function($) {
     };
 
     $.ajax({
-      url: '/recipes.json',
+      url: '/frontend-code-test/recipes.json',
       async: false, 
       dataType: 'json', 
       success: yay,
