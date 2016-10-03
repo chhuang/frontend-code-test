@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jQuery v2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+    <style>
+      h1 { margin:30px 0; padding:0 0 18px; border-bottom:1px solid #eee; }
+      h2 { margin:0 0 18px;  }
+      .tag { margin-left:12px; min-width:60px; font-weight:normal; font-size:12px; position:relative; top:2px; border-radius:2px; }
+      label { cursor:pointer; }
+      .is-selected,
+      .is-selected:hover,
+      .is-selected:focus,
+      .is-selected:active { background:#222; color:#fff; border-color:#222; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>Frontend Code Test</h1>
+        
+        <div class="js-filter alert alert-info">
+          <select class="pull-xs-right"></select>
+          <small>Filter recipes by ingredient (<a href="#" class="js-showAll">Show all</a>):</small>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <h2>Recipes</h2>
+            <div class="js-recipes list-group"></div>
+          </div>
+          
+          <div class="col-xs-6">
+            <h2>Ingredients</h2>
+            <div class="alert alert-warning js-emptyHolder">
+              &larr; What would you like to cook today?
+            </div>
+            <ul class="js-ingredients list-group"></ul>
+          </div>
+        </div> 
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
