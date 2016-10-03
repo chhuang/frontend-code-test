@@ -1,4 +1,6 @@
-### [Demo ( jQuery version )] (http://chhuang.github.io/frontend-code-test/)
+## Demo
+### [jQuery v1] (http://chhuang.github.io/frontend-code-test/jquery/v1)
+### [jQuery v2 (Revealing Module Pattern)] (http://chhuang.github.io/frontend-code-test/jquery/v2)
 
 Install
 -----
@@ -8,7 +10,7 @@ git clone git@github.com:chhuang/frontend-code-test.git
 cd frontend-code-test
 npm install
 npm start
-http://localhost:3000/jquery
+http://localhost:3000/jquery/v1 or http://localhost:3000/jquery/v1
 ```
 
 DataScience's Frontend Code Test
