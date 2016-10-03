@@ -1,7 +1,7 @@
 'use strict';
 
 $(function() {
-  $.getJSON('recipes.json', function(data) {
+  $.getJSON('/recipes.json', function(data) {
 
 /* ==========================================================================
     SETUP       
@@ -60,18 +60,22 @@ $(function() {
       },
 
       setState: function($el) {
-        var recipeStorage;
 
-        recipeStorage = {
-          name: $el.parent().text(),
-          checked: $el.prop('checked')
+        // Temporal holder for the recipe that's been toggled
+        var recipeStorage = $el.parent().text();
+
+        (typeof recipeFilter === 'string') && (recipeFilter = JSON.parse(recipeFilter));
+
+        if ($el.prop('checked')) {
+          recipeFilter.push(recipeStorage); // Add checked recipe
+        } else {
+          recipeFilter.splice(recipeFilter.indexOf(recipeStorage), 1); // Find unchecked recipe and remove it
         }
 
-        if (typeof recipeFilter === 'string') recipeFilter = JSON.parse(recipeFilter);
-        $el.prop('checked') ? recipeFilter.push(recipeStorage) : recipeFilter.pop(recipeStorage);
         localStorage.setItem('recipeFilter', JSON.stringify(recipeFilter));        
       },
 
+      // Get ingredient filter state from localStorage
       getFilterState: function() {
         $('option', $filter).filter(function() {
           return $(this).val() === localStorage.ingredientFilter;
@@ -107,10 +111,11 @@ $(function() {
         });
       },
 
+      // Get recipes state from localStorage
       getState: function() {
         $.map(JSON.parse(localStorage.recipeFilter), function(item) {
           $(':checkbox', $recipesList).filter(function() {
-            (this.nextSibling.nodeValue === item.name) && $(this).prop('checked', 'checked');
+            (this.nextSibling.nodeValue === item) && $(this).prop('checked', 'checked');
           });
         })
         Ingredients.update();
@@ -142,7 +147,10 @@ $(function() {
     $(document).on('change', '.js-recipes input:checkbox', function() {
       var $this = $(this);
 
+      // Update ingredients list
       Ingredients.update();
+
+      // Update state
       Ingredients.setState($this);
     });
     

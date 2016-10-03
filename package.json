@@ -8,15 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chhuang/frontend-test.git"
+    "url": "git+https://github.com/chhuang/frontend-code-test.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chhuang/frontend-test/issues"
-  },
-  "homepage": "https://github.com/chhuang/frontend-test#readme",
   "devDependencies": {
-    "browser-sync": "^2.12.8"
+    "browser-sync": "^2.12.8",
   }
 }
